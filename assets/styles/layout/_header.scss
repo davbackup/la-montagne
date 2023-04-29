@@ -1,0 +1,117 @@
+header {
+    color: $white1;
+    position: relative;
+    min-height: 100vh;
+
+    .header-content {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(40px);
+        animation: headeranim 1.5s forwards ;
+
+        @keyframes headeranim {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            @include title;
+            font-size: 4rem;
+            letter-spacing: 6px;
+
+            @media screen and (max-width: 700px) {
+                font-size: 2rem;
+            }
+        }
+        p {
+            font-style: italic;
+            margin: 40px auto 60px;
+            width: 85%;
+        }
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            height: 60px;
+            width: 60px;
+            border: 2px solid $white1;
+            border-radius: 50px;
+        }
+    }
+
+    nav {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        height: 65px;
+        background: rgba(255, 255, 255, 0.247);
+        display: flex;
+        justify-content: space-between;
+        z-index: 100;
+
+        ul {
+            display: flex;
+            align-items: center;   
+        }
+        .nav-left {
+
+            &:hover li:not(:hover) {
+                background: none;
+                color: $white1
+            }
+            li {
+                @include title;
+                font-size: 0.7rem;
+                cursor: pointer;
+                padding: 0 15px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+
+                @media screen and (max-width: 700px) {
+                    font-size: 0.5rem;
+                }
+
+                &:first-child {
+                    background: $white1;
+                    color: $black1;
+                }
+                &:hover {
+                    background: $white1;
+                    color: $black1; 
+                }
+            }
+        }
+        .nav-right {
+            font-size: 1.1rem;
+            min-width: 100px;
+            width: 25%;
+            max-width: 300px;
+            justify-content: space-around;
+            margin-right: 10px;
+
+            @media screen and (max-width: 700px) {
+                display: none;
+            }
+
+            li {
+                transition: 0.15s;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }
+        }
+        
+    }
+}
